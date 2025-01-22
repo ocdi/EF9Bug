@@ -2,8 +2,8 @@
 
 public class OptimisedModel : IOwnedBy
 {
-    public string? OwnerId { get; set; }
-    public string? OwnerType { get; set; }
+    public required string OwnerId { get; set; }
+    public required string OwnerType { get; set; }
     public string? Category { get; set; }
     public OptionalOneOptimised? Optional { get; set; }
     public OptionalTwoOptimised? Optional2 { get; set; }
@@ -13,8 +13,8 @@ public class OptimisedModel : IOwnedBy
 
 public interface IOwnedBy
 {
-    string? OwnerId { get; }
-    string? OwnerType { get; }
+    string OwnerId { get; }
+    string OwnerType { get; }
 }
 
 public class OptionalOneOptimised

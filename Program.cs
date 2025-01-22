@@ -23,21 +23,7 @@ context.Database.EnsureCreated();
 
 var source = context
     .Set<Item>()
-    .Select(a => new OptimisedModel
-    {
-        OwnerId = a.OwnerId,
-        OwnerType = a.OwnerType,
-        //Category =
-        //    a.DoubleNested.Nested.Category != null ? a.DoubleNested.Nested.Category.Name : null,
-        //Optional = a.Optional != null ? new OptionalOneOptimised { Name = a.Optional.Name } : null,
-        //Optional2 =
-        //    a.Optional2 != null ? new OptionalTwoOptimised { Name = a.Optional2.Name } : null,
-        //Details = a.Details.Select(a => new DetailOptimised
-        //{
-        //    Name = a.It.Type,
-        //    Count = a.It.Count
-        //})
-    });
+    .Select(a => new OptimisedModel { OwnerId = a.OwnerId!, OwnerType = a.OwnerType!, });
 
 var min = "000";
 var max = "999";
@@ -50,6 +36,7 @@ var range = sourceType.Where(a => a.OwnerId.CompareTo(min) > 0 && a.OwnerId.Comp
 var rangeIds = range.Select(a => a.OwnerId).Distinct().OrderBy(a => a).Take(100);
 
 var bug = sourceType.Where(a => rangeIds.Contains(((IOwnedBy)a).OwnerId));
+
 var array = bug.ToArray();
 
 Console.ReadLine();
