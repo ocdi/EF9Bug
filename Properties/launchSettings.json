@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "EF9Bug": {
+      "commandName": "Project",
+        "environmentVariables": {
+            "DOTNET_ENVIRONMENT": "Development",
+            "ENVIRONMENT":"Development"
+        }
+    }
+  }
+}
